@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Artur Krasavchik</title>
+    </head>
+<body>
+
+{% for i in all_posts %}
+    <div>
+        <h1>{{ i.title }}</h1>
+        <img style="width: 600px" src='{{ i.img.url }}' /><br /><br />
+        <text>{{ i.description|truncatechars:100 }}</text><br />
+
+        <p>{{ i.user }} {{ i.create_date }}</p>
+        <hr>
+    </div>
+{% endfor %}
+
+    {% for i in all_posts %}
+        <div>
+            {{ test }}
+        </div>
+    {% endfor %}
+
+
+</body>
+</html>
+
+{% comment %} <h1>Eto h1</h1>
+<h2>Eto h1</h2>
+<h3>Eto h1</h3>
+<h4>Eto h1</h4>
+<h5>Eto h1</h5>
+<h6>Eto h1</h6>
+
+<p>I am Bysu</p>
+<p>I am not Bysu</p>
+<ul>
+    <h3>hello</h3>
+    <li><a href="https://www.google.com/">First</a></li>
+    <a href="https://www.google.com/"><li>Second</li></a>
+    <li>Third</li>
+</ul>
+Salam<br>Aibek
+<div style='col-6'>
+    <div>
+    <input type='integer' step='0.01' value='0'>
+
+    <button type="submit">This is button</button>
+    </div>
+    <div></div>
+    <div></div>
+</div>
+<div style='col-6'>
+    <input type='integer' step='0.01' value='0'>
+
+    <button type="submit">This is button</button>
+    
+</div> {% endcomment %}
