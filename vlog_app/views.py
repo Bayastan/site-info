@@ -4,6 +4,7 @@ from .models import Post
 from django.db.models.query import QuerySet
 from datetime import datetime
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -109,11 +110,10 @@ def registration(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            
             user = form.save()
             login(
                 request=request,
-                user=user,
+                user=user
             )
             return redirect('/')
     
