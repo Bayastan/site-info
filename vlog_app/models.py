@@ -116,4 +116,12 @@ class SiteInfo(models.Model):
     def __str__(self) -> str:
         return str(self.name)
     
-    
+# SITE_INFO = {
+#     'contacts': Contact.objects.all(),
+#     'site_info': SiteInfo.objects.first()
+# }
+
+SITE_INFO = {
+    'contacts': None,
+    'site_info': None
+}
