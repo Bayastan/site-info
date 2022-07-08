@@ -40,3 +40,80 @@ class Post(models.Model):
     
     def __str__(self) -> str:
         return str(self.title)
+    
+    
+class Contact(models.Model):
+    name = models.CharField(
+        max_length=50,
+        verbose_name="Название контакта",
+    )
+    
+    contact_url = models.URLField(
+        verbose_name="Ссылка на контакт",
+        unique=True
+    )
+    
+    create_date = models.DateTimeField(
+        verbose_name="Дата создания контакта",
+        auto_now_add=True
+        
+    )
+    
+    update_date = models.DateTimeField(
+        verbose_name="Дата последнего обновления контакта",
+        auto_now=True
+    )
+    
+    is_active = models.BooleanField(
+        verbose_name="Активный",
+        default=True
+    )
+    
+    class Meta:
+        unique_together = ("name", "contact_url")
+        
+    def test(self):
+        return 2 + 2
+
+    def __str__(self) -> str:
+        return str(self.name)
+    
+    
+class SiteInfo(models.Model):
+    name = models.CharField(
+        max_length=20,
+        verbose_name="Название сайта"
+    )
+    
+    title = models.CharField(
+        max_length=20,
+        verbose_name="Заголовок сайта"
+    )
+    
+    description = models.CharField(
+        max_length=500,
+        verbose_name="Описание сайта",
+    )
+    
+    create_date = models.DateTimeField(
+        verbose_name="Дата создания сайта",
+        auto_now_add=True,
+    )
+    
+    update_date = models.DateTimeField(
+        verbose_name="Дата последнего обновления контакта",
+        auto_now=True
+    )
+    
+    is_active = models.BooleanField(
+        verbose_name="Активный",
+        default=True
+    )
+        
+    class Meta:
+        ordering = ("create_date",)
+    
+    def __str__(self) -> str:
+        return str(self.name)
+    
+    
